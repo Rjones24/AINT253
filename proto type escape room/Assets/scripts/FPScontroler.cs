@@ -28,10 +28,9 @@ public class FPScontroler : MonoBehaviour
         float Horizintal = Input.GetAxisRaw("Horizontal");
         float Vertical = Input.GetAxisRaw("Vertical");
         bool Jump = Input.GetButton("Jump");
-        float LookHorizontal = Input.GetAxisRaw("Mouse X");
+        
 
-
-        transform.Rotate(0f, LookHorizontal, 0f, Space.Self);
+        transform.Rotate(0f, 0f, Horizintal/2, Space.Self);
 
 
         if (controller.isGrounded)
@@ -58,25 +57,14 @@ public class FPScontroler : MonoBehaviour
             controller.Move(jumpVector * Time.deltaTime);
 
         }
-
-
-
-
-        
-            MoveMech(Horizintal, Vertical);
+ 
+            MoveMech( Vertical);
         
     }
 
-    void SprintMech(float Horizintal, float Vertical)
+    void MoveMech( float Vertical)
     {
-        transform.Translate(Horizintal * Time.deltaTime * 20, 0f, 0f);
-        transform.Translate(0f, 0f, Vertical * Time.deltaTime * 20);
-    }
-
-    void MoveMech(float Horizintal, float Vertical)
-    {
-        transform.Translate(Horizintal * Time.deltaTime * 10, 0f, 0f);
-        transform.Translate(0f, 0f, Vertical * Time.deltaTime * 10);
+        transform.Translate( 0.0f, Vertical * Time.deltaTime * 10, 0f);
     }
 
 }
