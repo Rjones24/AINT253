@@ -19,6 +19,7 @@ public class Pickup1 : MonoBehaviour
 
         if (isHolding == true)
         {
+            
             item.GetComponent<Rigidbody>().velocity = Vector3.zero;
             item.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
             item.transform.SetParent(TempParent.transform);
@@ -26,6 +27,7 @@ public class Pickup1 : MonoBehaviour
         }
         else
         {
+            
             objectpos = item.transform.position;
             item.transform.SetParent(null);
             item.GetComponent<Rigidbody>().useGravity = true;
@@ -36,6 +38,8 @@ public class Pickup1 : MonoBehaviour
     void OnMouseDown()
     {
         isHolding = true;
+        item.transform.position = TempParent.transform.position;
+        
         GetComponent<Rigidbody>().useGravity = false;
         GetComponent<Rigidbody>().detectCollisions = true;
        
