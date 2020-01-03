@@ -58,7 +58,13 @@ public class KeyPad : MonoBehaviour
             {
                 GUI.Box(new Rect(0, 0, 320, 455), "");
                 GUI.Box(new Rect(5, 5, 310, 25), input);
-                GUI.Button(new Rect(5, 35, 100, 100), "1");
+
+
+                if (GUI.Button(new Rect(5, 35, 100, 100), "1"))
+                {
+                    input += "1";
+                }
+                
                 GUI.Button(new Rect(110, 35, 100, 100), "2");
                 GUI.Button(new Rect(215, 35, 100, 100), "3");
                 GUI.Button(new Rect(5, 140, 100, 100), "4");
