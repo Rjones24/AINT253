@@ -5,7 +5,8 @@ using UnityEngine;
 public class KeyPad : MonoBehaviour
 {
     public string CurrentPin = "1234";
-    public string input;
+    public string input = "";
+    public string tempinput = "";
     public bool onTrigger;
     public bool doorOpen;
     public bool keyPadScreen;
@@ -21,6 +22,7 @@ public class KeyPad : MonoBehaviour
     {
         onTrigger = false;
         keyPadScreen = false;
+
         input = null;
     }
 
@@ -57,50 +59,59 @@ public class KeyPad : MonoBehaviour
                 GUI.Box(new Rect(0, 0, 320, 455), "");
                 GUI.Box(new Rect(5, 5, 310, 25), input);
                 GUI.Button(new Rect(5, 35, 100, 100), "1");
+                GUI.Button(new Rect(110, 35, 100, 100), "2");
+                GUI.Button(new Rect(215, 35, 100, 100), "3");
+                GUI.Button(new Rect(5, 140, 100, 100), "4");
+                GUI.Button(new Rect(110, 140, 100, 100), "4");
+                GUI.Button(new Rect(215, 140, 100, 100), "6");
+                GUI.Button(new Rect(5, 245, 100, 100), "7");
+                GUI.Button(new Rect(110, 245, 100, 100), "8");
+                GUI.Button(new Rect(215, 245, 100, 100), "9");
+                GUI.Button(new Rect(100, 350, 100, 100), "0");
 
-                if (Input.GetKeyDown(KeyCode.Alpha1))
+                if (Input.GetKeyUp(KeyCode.Alpha1))
                 {
-                    input += "1";
+                    tempinput += "1";
+                    input += tempinput[0];
                 }
-
-
-                if (GUI.Button(new Rect(110, 35, 100, 100), "2"))
+                if (Input.GetKeyDown(KeyCode.Alpha2))
                 {
-                    input += "2";
+                    tempinput += "2";
                 }
-                if (GUI.Button(new Rect(215, 35, 100, 100), "3"))
+                if (Input.GetKeyDown(KeyCode.Alpha3))
                 {
                     input += "3";
                 }
-                if (GUI.Button(new Rect(5, 140, 100, 100), "4"))
+                if (Input.GetKeyDown(KeyCode.Alpha4))
                 {
                     input += "4";
                 }
-                if (GUI.Button(new Rect(110, 140, 100, 100), "4"))
+                if (Input.GetKeyDown(KeyCode.Alpha5))
                 {
                     input += "5";
                 }
-                if (GUI.Button(new Rect(215, 140, 100, 100), "6"))
+                if (Input.GetKeyDown(KeyCode.Alpha6))
                 {
                     input += "6";
                 }
-                if (GUI.Button(new Rect(5, 245, 100, 100), "7"))
+                if (Input.GetKeyDown(KeyCode.Alpha7))
                 {
                     input += "7";
                 }
-                if (GUI.Button(new Rect(110, 245, 100, 100), "8"))
+                if (Input.GetKeyDown(KeyCode.Alpha8))
                 {
                     input += "8";
                 }
-                if (GUI.Button(new Rect(215, 245, 100, 100), "9"))
+                if (Input.GetKeyDown(KeyCode.Alpha9))
                 {
                     input += "9";
                 }
-                if (GUI.Button(new Rect(100, 350, 100, 100), "0"))
+                if (Input.GetKeyDown(KeyCode.Alpha0))
                 {
                     input += "0";
                 }
-
+                
+                tempinput = "";
             }
         }
     }
