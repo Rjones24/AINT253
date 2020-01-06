@@ -22,7 +22,7 @@ public class KeyPad : MonoBehaviour
     {
         onTrigger = false;
         keyPadScreen = false;
-
+        Cursor.lockState = CursorLockMode.Locked;
         input = null;
     }
 
@@ -51,6 +51,7 @@ public class KeyPad : MonoBehaviour
                 {
                     keyPadScreen = true;
                     onTrigger = false;
+                    Cursor.lockState = CursorLockMode.None;
                 }
             }
 
@@ -64,60 +65,44 @@ public class KeyPad : MonoBehaviour
                 {
                     input += "1";
                 }
-                
-                GUI.Button(new Rect(110, 35, 100, 100), "2");
-                GUI.Button(new Rect(215, 35, 100, 100), "3");
-                GUI.Button(new Rect(5, 140, 100, 100), "4");
-                GUI.Button(new Rect(110, 140, 100, 100), "4");
-                GUI.Button(new Rect(215, 140, 100, 100), "6");
-                GUI.Button(new Rect(5, 245, 100, 100), "7");
-                GUI.Button(new Rect(110, 245, 100, 100), "8");
-                GUI.Button(new Rect(215, 245, 100, 100), "9");
-                GUI.Button(new Rect(100, 350, 100, 100), "0");
 
-                if (Input.GetKeyUp(KeyCode.Alpha1))
+                if (GUI.Button(new Rect(110, 35, 100, 100), "2"))
                 {
-                    tempinput += "1";
-                    input += tempinput[0];
+                    input += "2";
                 }
-                if (Input.GetKeyDown(KeyCode.Alpha2))
-                {
-                    tempinput += "2";
-                }
-                if (Input.GetKeyDown(KeyCode.Alpha3))
+                if (GUI.Button(new Rect(215, 35, 100, 100), "3"))
                 {
                     input += "3";
                 }
-                if (Input.GetKeyDown(KeyCode.Alpha4))
+                if (GUI.Button(new Rect(5, 140, 100, 100), "4"))
                 {
                     input += "4";
                 }
-                if (Input.GetKeyDown(KeyCode.Alpha5))
+                if (GUI.Button(new Rect(110, 140, 100, 100), "5"))
                 {
                     input += "5";
                 }
-                if (Input.GetKeyDown(KeyCode.Alpha6))
+                if (GUI.Button(new Rect(215, 140, 100, 100), "6"))
                 {
                     input += "6";
                 }
-                if (Input.GetKeyDown(KeyCode.Alpha7))
+                if (GUI.Button(new Rect(5, 245, 100, 100), "7"))
                 {
                     input += "7";
                 }
-                if (Input.GetKeyDown(KeyCode.Alpha8))
+                if (GUI.Button(new Rect(110, 245, 100, 100), "8"))
                 {
                     input += "8";
                 }
-                if (Input.GetKeyDown(KeyCode.Alpha9))
+                if (GUI.Button(new Rect(215, 245, 100, 100), "9"))
                 {
                     input += "9";
                 }
-                if (Input.GetKeyDown(KeyCode.Alpha0))
+                if (GUI.Button(new Rect(100, 350, 100, 100), "0"))
                 {
                     input += "0";
                 }
-                
-                tempinput = "";
+
             }
         }
     }

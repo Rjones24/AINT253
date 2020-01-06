@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace EasySurvivalScripts
 {
+   
+
     public enum CameraPerspective
     {
         FirstPerson,
@@ -13,6 +15,7 @@ namespace EasySurvivalScripts
     public class PlayerCamera : MonoBehaviour
     {
 
+        public KeyPad keyPad;
         [Header("Input Settings")]
         public string MouseXInput;
         public string MouseYInput;
@@ -138,20 +141,25 @@ namespace EasySurvivalScripts
 
         void RotateCamera()
         {
-            float mouseX = Input.GetAxis(MouseXInput) * (mouseSensitivity * Time.deltaTime);
-            float mouseY = Input.GetAxis(MouseYInput) * (mouseSensitivity * Time.deltaTime);
-            Vector3 eulerRotation = transform.eulerAngles;
+            if (!keyPad.GetComponent<KeyPad>().keyPadScreen)
+            {
 
-            xClamp += mouseY;
 
-            if(cameraPerspective == CameraPerspective.FirstPerson)
-                xClamp = Mathf.Clamp(xClamp, FPS_MinMaxAngles.x, FPS_MinMaxAngles.y);
-            else
-                xClamp = Mathf.Clamp(xClamp, TPS_MinMaxAngles.x, TPS_MinMaxAngles.y);
+                float mouseX = Input.GetAxis(MouseXInput) * (mouseSensitivity * Time.deltaTime);
+                float mouseY = Input.GetAxis(MouseYInput) * (mouseSensitivity * Time.deltaTime);
+                Vector3 eulerRotation = transform.eulerAngles;
 
-            eulerRotation.x = -xClamp;
-            transform.eulerAngles = eulerRotation;
-            FPSController.Rotate(Vector3.up * mouseX);
+                xClamp += mouseY;
+
+                if (cameraPerspective == CameraPerspective.FirstPerson)
+                    xClamp = Mathf.Clamp(xClamp, FPS_MinMaxAngles.x, FPS_MinMaxAngles.y);
+                else
+                    xClamp = Mathf.Clamp(xClamp, TPS_MinMaxAngles.x, TPS_MinMaxAngles.y);
+
+                eulerRotation.x = -xClamp;
+                transform.eulerAngles = eulerRotation;
+                FPSController.Rotate(Vector3.up * mouseX);
+            }
         }
 
         private void OnDrawGizmosSelected()

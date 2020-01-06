@@ -6,10 +6,8 @@ public class OpenDraw : MonoBehaviour
 {
    
     public bool onTrigger;
-    public bool DrawOpen;
-   
-
-    public Transform Draw;
+    public bool DrawOpen = false;
+    [SerializeField] private Animator myAnimation;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -21,14 +19,6 @@ public class OpenDraw : MonoBehaviour
         onTrigger = false;
     }
 
-    private void Update()
-    {
-        if (DrawOpen)
-        {
-            
-            Draw.Translate(0.0f, 10.0f, 0f);
-        }
-    }
 
     private void OnGUI()
     {
@@ -39,10 +29,12 @@ public class OpenDraw : MonoBehaviour
                 GUI.Box(new Rect(0, 0, 200, 25), "Press 'E' to open draw");
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    myAnimation.SetBool("open", true);
                     DrawOpen = true;
                 }
             }
 
         }
+        
     }
 }
