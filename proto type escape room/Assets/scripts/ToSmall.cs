@@ -26,7 +26,7 @@ public class ToSmall : MonoBehaviour
 
         if (onTrigger)
         {
-            GUI.Box(new Rect(50, 250, 500, 25), "you are to small to reach the keypad try and find a step do that you can reach it");
+            GUI.Box(new Rect(850, 750, 500, 25), "you are to small to reach the keypad try and find a step do that you can reach it");
            
         }
     }

@@ -46,7 +46,7 @@ public class KeyPad : MonoBehaviour
         {
             if (onTrigger)
             {
-                GUI.Box(new Rect(0, 0, 200, 25), "Press 'E' to Interact with Keypad");
+                GUI.Box(new Rect(850, 700, 200, 25), "Press 'E' to Interact with Keypad");
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     keyPadScreen = true;

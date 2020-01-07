@@ -45,7 +45,7 @@ public class BoxPuzzle : MonoBehaviour
         {
             if (onTrigger)
             {
-                GUI.Box(new Rect(200, 400, 600, 25), "use the mouse to pick up the blocks and move them to the right pad");
+                GUI.Box(new Rect(850, 700, 600, 25), "use the mouse to pick up the blocks and move them to the right pad");
                
             }
 

@@ -36,23 +36,27 @@ public class GameManagment : MonoBehaviour
         if (win)
         {
             winstate();
+            win = false;
         }
         if (fail)
         {
             failstate();
+            fail = false;
         }
     }
 
     public void BackToMenu()
     {
-        SceneManager.LoadScene("", LoadSceneMode.Single);
+        SceneManager.LoadScene("Menu", LoadSceneMode.Single);
     }
     public void failstate()
     {
         SceneManager.LoadScene("fail", LoadSceneMode.Single);
+        Cursor.lockState = CursorLockMode.None;
     }
     public void winstate()
     {
         SceneManager.LoadScene("Win", LoadSceneMode.Single);
+        Cursor.lockState = CursorLockMode.None;
     }
 }

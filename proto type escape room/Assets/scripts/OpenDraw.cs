@@ -7,6 +7,7 @@ public class OpenDraw : MonoBehaviour
    
     public bool onTrigger;
     public bool DrawOpen = false;
+    public GameObject drawer;
     [SerializeField] private Animator myAnimation;
 
     private void OnTriggerEnter(Collider other)
@@ -26,11 +27,13 @@ public class OpenDraw : MonoBehaviour
         {
             if (onTrigger)
             {
-                GUI.Box(new Rect(0, 0, 200, 25), "Press 'E' to open draw");
+                GUI.Box(new Rect(850, 700, 200, 25), "Press 'E' to open draw");
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    myAnimation.SetBool("open", true);
+                    myAnimation.SetBool("open", true);                   
+                    drawer.GetComponent<AudioSource>().Play();
                     DrawOpen = true;
+                    
                 }
             }
 

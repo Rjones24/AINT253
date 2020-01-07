@@ -7,7 +7,7 @@ public class LookOutWindow : MonoBehaviour
     public bool onTrigger;
 
 
-    public Transform doorHinge;
+  
 
     private void OnTriggerEnter(Collider other)
     {
@@ -26,7 +26,7 @@ public class LookOutWindow : MonoBehaviour
 
         if (onTrigger)
         {
-            GUI.Box(new Rect(50, 250, 500, 25), "you notice somthing out side but are to small to read");
+            GUI.Box(new Rect(850, 700, 500, 25), "you notice somthing out side but are to small to read it");
 
         }
     }
