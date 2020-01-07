@@ -67,6 +67,7 @@
     <Compile Include="Assets\scripts\BoxPuzzle.cs" />
     <Compile Include="Assets\scripts\CameraSpin.cs" />
     <Compile Include="Assets\scripts\CountDown.cs" />
+    <Compile Include="Assets\scripts\desk.cs" />
     <Compile Include="Assets\scripts\detectweight.cs" />
     <Compile Include="Assets\scripts\FPSCamera.cs" />
     <Compile Include="Assets\scripts\FPScontroler.cs" />

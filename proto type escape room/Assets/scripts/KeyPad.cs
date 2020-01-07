@@ -10,7 +10,8 @@ public class KeyPad : MonoBehaviour
     public bool onTrigger;
     public bool doorOpen;
     public bool keyPadScreen;
-    
+    public GameObject door;
+
     public Transform doorHinge;
 
     private void OnTriggerEnter(Collider other)
@@ -35,8 +36,11 @@ public class KeyPad : MonoBehaviour
 
         if (doorOpen)
         {
+           
             var newRotation = Quaternion.RotateTowards(doorHinge.rotation, Quaternion.Euler(0.0f, -90.0f, 0.0f), Time.deltaTime * 250);
+            
             doorHinge.rotation = newRotation;
+            door.GetComponent<AudioSource>().Play();
         }
     }
 
